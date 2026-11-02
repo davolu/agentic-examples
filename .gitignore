@@ -1,0 +1,11 @@
+# Tutorials are local working documents — never push them (any folder)
+tutorial.md
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Env / secrets
+.env
