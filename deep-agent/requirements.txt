@@ -1,0 +1,6 @@
+# deep_agent.py (no framework)
+anthropic>=0.49.0
+
+# deep_agent_langchain.py
+deepagents>=0.5
+langchain-anthropic>=1.0

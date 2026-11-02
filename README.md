@@ -9,6 +9,8 @@ A collection of small, runnable examples of agentic AI patterns built on the Ant
 | [`reflectio-agent/`](reflectio-agent/) | Reflection | An agent that critiques and revises its own output in a generate → critique → revise loop until a strict critic approves or an iteration cap is hit. | [Medium](https://medium.com/@oluyaled/the-agent-that-grades-its-own-homework-building-a-reflection-loop-db34e5d70913) |
 | [`reflexion-agent/`](reflexion-agent/) | Reflexion | An agent that attempts a task, gets judged by real unit tests, writes a verbal self-reflection on each failure, and retries from scratch with its accumulated lessons in memory (Shinn et al., 2023). | [Medium](https://medium.com/@oluyaled/agent-that-learns-from-its-mistakes-building-a-reflexion-loop-with-claude-8e97a537da71) |
 
+| [`deep-agent/`](deep-agent/) | Deep Agent | A long-horizon research agent with the four deep-agent ingredients — planning todos, a virtual file system, parallel research sub-agents with web search, and a detailed operating prompt — built twice: from scratch on the raw SDK, and with LangChain's `deepagents`. | — |
+
 More examples coming.
 
 ## Running an example
