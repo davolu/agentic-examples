@@ -12,14 +12,19 @@ The loop ends when the critic approves the draft or MAX_ITERATIONS is hit.
 Usage:
     export ANTHROPIC_API_KEY=sk-ant-...
     python reflection_agent.py "Write a short blog post about why unit tests matter"
+
+    # Use a different model (default: claude-opus-4-8)
+    REFLECTION_MODEL=claude-sonnet-5 python reflection_agent.py "..."
 """
 
+import os
 import sys
 
 import anthropic
 from pydantic import BaseModel, Field
 
-MODEL = "claude-opus-4-8"
+# Override with e.g. REFLECTION_MODEL=claude-fable-5 or claude-sonnet-5
+MODEL = os.environ.get("REFLECTION_MODEL", "claude-opus-4-8")
 MAX_ITERATIONS = 3
 
 client = anthropic.Anthropic()
