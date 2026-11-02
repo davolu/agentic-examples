@@ -10,6 +10,8 @@ A collection of small, runnable examples of agentic AI patterns.
 | [`reflexion-agent/`](reflexion-agent/) | Reflexion | An agent that attempts a task, gets judged by real unit tests, writes a verbal self-reflection on each failure, and retries from scratch with its accumulated lessons in memory (Shinn et al., 2023). | [Medium](https://medium.com/@oluyaled/agent-that-learns-from-its-mistakes-building-a-reflexion-loop-with-claude-8e97a537da71) |
 | [`deep-agent/`](deep-agent/) | Deep Agent | A long-horizon research agent with the four deep-agent ingredients — planning todos, a virtual file system, parallel research sub-agents with web search, and a detailed operating prompt — built twice: from scratch on the raw SDK, and with LangChain's `deepagents`. | [Medium](https://medium.com/@oluyaled/going-deep-building-a-deep-agent-twice-from-scratch-then-with-langchain-71cf43a63be5) |
 
+| [`jev-agentic/`](jev-agentic/) | Decision-routed agent | A Streamlit support chatbot where Jev (TypeSafe's System One decision model) answers every routine decision — route, tone, scope, escalation — in one fast call, and the LLM only writes when bespoke prose is needed. Live cost dashboard shows LLM calls avoided and tokens saved. | — |
+
 More examples coming.
 
 ## Running an example
