@@ -4,9 +4,10 @@ A collection of small, runnable examples of agentic AI patterns built on the Ant
 
 ## Examples
 
-| Folder | Pattern | Description |
-|--------|---------|-------------|
-| [`reflectio-agent/`](reflectio-agent/) | Reflection | An agent that critiques and revises its own output in a generate → critique → revise loop until a strict critic approves or an iteration cap is hit. |
+| Folder | Pattern | Description | Article |
+|--------|---------|-------------|---------|
+| [`reflectio-agent/`](reflectio-agent/) | Reflection | An agent that critiques and revises its own output in a generate → critique → revise loop until a strict critic approves or an iteration cap is hit. | [Medium](https://medium.com/@oluyaled/the-agent-that-grades-its-own-homework-building-a-reflection-loop-db34e5d70913) |
+| [`reflexion-agent/`](reflexion-agent/) | Reflexion | An agent that attempts a task, gets judged by real unit tests, writes a verbal self-reflection on each failure, and retries from scratch with its accumulated lessons in memory (Shinn et al., 2023). | — |
 
 More examples coming.
 
