@@ -1,6 +1,6 @@
 # Agentic Examples
 
-A collection of small, runnable examples of agentic AI patterns built on the Anthropic Claude API.
+A collection of small, runnable examples of agentic AI patterns.
 
 ## Examples
 
