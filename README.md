@@ -14,6 +14,8 @@ A collection of small, runnable examples of agentic AI patterns.
 
 | [`injection-arena/`](injection-arena/) | Security: prompt injection | An email-assistant agent run through a gauntlet of 10 prompt-injection attacks (authority impersonation, markdown-image exfiltration, compound attacks, system-prompt leaks…), with programmatic success detection. A naive agent vs. a hardened one (spotlighting, programmatic tool guards, output validation, a Jev injection pre-filter) — scorecard: 8/10 → 10/10 blocked, zero utility lost. | — |
 
+| [`hitl-agent/`](hitl-agent/) | Human-in-the-loop | A refund-processing agent that pauses before high-stakes actions for a human to approve / edit / reject, then resumes mid-task — built twice: from scratch (interrupt = persist state + exit; resume = reload a checkpoint) and with LangGraph's `interrupt()` + checkpointer. A deterministic gate (plus a Jev second-opinion Noul) decides which refunds need a human. | — |
+
 More examples coming.
 
 ## Running an example
