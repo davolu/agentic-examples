@@ -9,3 +9,9 @@ venv/
 
 # Env / secrets
 .env
+
+# agentic-recorder runtime artifacts
+agentic-recorder/jobs/
+agentic-recorder/memory/
+.playwright-mcp/
+.DS_Store

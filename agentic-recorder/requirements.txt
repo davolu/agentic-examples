@@ -1,0 +1,9 @@
+anthropic[mcp]>=0.60
+playwright>=1.47
+typesafe-sdk>=0.1
+langsmith>=0.1
+python-dotenv>=1.0
+pydantic>=2.0
+# Also required: Node.js (for npx @playwright/mcp), ffmpeg
+# After pip install: python -m playwright install chromium
+customtkinter>=5.2
