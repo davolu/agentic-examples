@@ -16,6 +16,8 @@ A collection of small, runnable examples of agentic AI patterns.
 
 | [`hitl-agent/`](hitl-agent/) | Human-in-the-loop | A refund-processing agent that pauses before high-stakes actions for a human to approve / edit / reject, then resumes mid-task — built twice: from scratch (interrupt = persist state + exit; resume = reload a checkpoint) and with LangGraph's `interrupt()` + checkpointer. A deterministic gate (plus a Jev second-opinion Noul) decides which refunds need a human. | — |
 
+| [`agent-evals/`](agent-evals/) | Evals: your agent needs CI | An eval harness for a triage agent — exact-match on structured fields, a calibrated LLM-as-judge for free-text replies, a near-free Jev judge, cost/latency, and a baseline diff. A "more thorough" v2 prompt looks better but silently drops spam detection 25%; the per-category regression check catches it and blocks the ship. | — |
+
 More examples coming.
 
 ## Running an example
