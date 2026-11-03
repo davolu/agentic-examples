@@ -12,6 +12,8 @@ A collection of small, runnable examples of agentic AI patterns.
 | [`jev-agentic/`](jev-agentic/) | Decision-routed agent | A Streamlit support chatbot where Jev (TypeSafe's System One decision model) answers every routine decision — route, tone, scope, escalation — in one fast call, and the LLM only writes when bespoke prose is needed. Live cost dashboard shows LLM calls avoided and tokens saved. | [Medium](https://medium.com/@oluyaled/cutting-llm-token-costs-up-to-40-80-and-making-replies-11x-faster-with-jev-typesafes-system-824dec44d7f6) |
 | [`agentic-recorder/`](agentic-recorder/) | Capstone: agentic recording | A desktop app where an agent films product demo videos by itself: you write the brief, it explores the page (sub-agent on Playwright MCP), scripts and critiques a walkthrough (reflection), dry-runs every step (Reflexion), films with an animated cursor, and Jev QA-grades every frame — with cross-session site memory making repeat videos ~10x cheaper. | [Medium](https://medium.com/@oluyaled/self-filming-agents-an-end-to-end-pipeline-for-automated-demo-videos-with-deep-agents-mcp-a217cf687c96) |
 
+| [`injection-arena/`](injection-arena/) | Security: prompt injection | An email-assistant agent run through a gauntlet of 10 prompt-injection attacks (authority impersonation, markdown-image exfiltration, compound attacks, system-prompt leaks…), with programmatic success detection. A naive agent vs. a hardened one (spotlighting, programmatic tool guards, output validation, a Jev injection pre-filter) — scorecard: 8/10 → 10/10 blocked, zero utility lost. | — |
+
 More examples coming.
 
 ## Running an example
