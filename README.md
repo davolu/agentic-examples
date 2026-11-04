@@ -4,9 +4,9 @@ A collection of small, runnable examples of agentic AI patterns — each self-co
 
 ## The series
 
-Twelve examples that build on one another, grouped into an arc:
+Thirteen examples that build on one another, grouped into an arc:
 
-- **Core patterns** — [reflection](reflectio-agent/), [Reflexion](reflexion-agent/), [deep agents](deep-agent/), and [decision models](jev-agentic/): the building blocks.
+- **Core patterns** — [reflection](reflectio-agent/), [Reflexion](reflexion-agent/), [deep agents](deep-agent/), [decision models](jev-agentic/), and [chain-of-verification](cove-agent/): the building blocks.
 - **Capstone** — [agentic-recorder](agentic-recorder/): an agent that films its own demo videos, composing every core pattern into one pipeline.
 - **Trustworthy agents** — [injection defense](injection-arena/), [human-in-the-loop](hitl-agent/), and [evals](agent-evals/): making agents safe, controllable, and measurable.
 - **Orchestration & production** — [DAG workflows](DAG-agents/) (parallelism from declared dependencies), [durable/ambient agents](durable-agent/) (surviving production), and [building an MCP server](mcp-server/).
@@ -30,6 +30,7 @@ Three themes recur across the series: **enforce safety and policy structurally**
 | [`durable-agent/`](durable-agent/) | Durability / ambient | A crash-proof batch agent that checkpoints after every item (atomic writes) and resumes exactly where it died — demonstrated by crashing it on purpose mid-batch and watching it pick up at item 9. Idempotent resume makes "just run it again" safe, which also turns it into a scheduled/ambient agent via one cron line. Points to LangGraph checkpointers / Temporal for production. | [Medium](https://medium.com/@oluyaled/crash-proof-agents-building-a-durable-batch-runner-that-resumes-where-it-died-576173a97443) |
 | [`mcp-server/`](mcp-server/) | Building an MCP server | The other half of MCP — *serving* tools instead of consuming them. A task & notes MCP server (official SDK) exposing all three primitives (tools, resources, prompts) plus progress reporting, with a stdio test client that proves it end to end and a Claude Desktop/Code connector config. | [Medium](https://medium.com/@oluyaled/building-an-mcp-server-give-claude-your-own-tools-resources-and-prompts-da33966f8bf0) |
 | [`DAG-agents/`](DAG-agents/) | DAG orchestration | A résumé-review workflow as a diamond DAG (parse → 3 analyses in parallel → synthesize), built twice: a ~50-line from-scratch scheduler (topological levels + `asyncio.gather` + cycle detection) and with LangGraph. Measured sequential→parallel speedup (1.7×, bounded by nodes/critical-path), a cycle-rejection demo, and an honest note on why DAGs can't do feedback loops. Anchored to LLMCompiler (Kim et al., 2024). | — |
+| [`cove-agent/`](cove-agent/) | Chain-of-Verification | An agent that fact-checks itself (Dhuliawala et al., 2023): baseline → plan verification questions → answer them *independently* → revise. Measured on hallucination-prone questions: CoVe lifts 86% → 93%, but the key finding is the independence ablation — *contaminated* (joint) verification scored **79%, below baseline**, so factored beats joint by +14 points. "Add a self-check" is only good if the check is independent. | — |
 
 More examples coming.
 
