@@ -4,13 +4,13 @@ A collection of small, runnable examples of agentic AI patterns — each self-co
 
 ## The series
 
-Thirteen examples that build on one another, grouped into an arc:
+Fourteen examples that build on one another, grouped into an arc:
 
 - **Core patterns** — [reflection](reflectio-agent/), [Reflexion](reflexion-agent/), [deep agents](deep-agent/), [decision models](jev-agentic/), and [chain-of-verification](cove-agent/): the building blocks.
 - **Capstone** — [agentic-recorder](agentic-recorder/): an agent that films its own demo videos, composing every core pattern into one pipeline.
 - **Trustworthy agents** — [injection defense](injection-arena/), [human-in-the-loop](hitl-agent/), and [evals](agent-evals/): making agents safe, controllable, and measurable.
 - **Orchestration & production** — [DAG workflows](DAG-agents/) (parallelism from declared dependencies), [durable/ambient agents](durable-agent/) (surviving production), and [building an MCP server](mcp-server/).
-- **Reality check** — [multi-agent debate](agent-debate/): a hyped technique measured honestly on a current model.
+- **Reality checks** — [multi-agent debate](agent-debate/) and [agentic RAG](agentic-rag/): hyped techniques measured honestly on a current model, where the gains often shrink.
 
 Three themes recur across the series: **enforce safety and policy structurally** rather than trusting model goodwill; **measure techniques on your own model** instead of cargo-culting results from older papers; and **build each pattern from scratch once** so the frameworks stop looking like magic.
 
@@ -31,6 +31,7 @@ Three themes recur across the series: **enforce safety and policy structurally**
 | [`mcp-server/`](mcp-server/) | Building an MCP server | The other half of MCP — *serving* tools instead of consuming them. A task & notes MCP server (official SDK) exposing all three primitives (tools, resources, prompts) plus progress reporting, with a stdio test client that proves it end to end and a Claude Desktop/Code connector config. | [Medium](https://medium.com/@oluyaled/building-an-mcp-server-give-claude-your-own-tools-resources-and-prompts-da33966f8bf0) |
 | [`DAG-agents/`](DAG-agents/) | DAG orchestration | A résumé-review workflow as a diamond DAG (parse → 3 analyses in parallel → synthesize), built twice: a ~50-line from-scratch scheduler (topological levels + `asyncio.gather` + cycle detection) and with LangGraph. Measured sequential→parallel speedup (1.7×, bounded by nodes/critical-path), a cycle-rejection demo, and an honest note on why DAGs can't do feedback loops. Anchored to LLMCompiler (Kim et al., 2024). | — |
 | [`cove-agent/`](cove-agent/) | Chain-of-Verification | An agent that fact-checks itself (Dhuliawala et al., 2023): baseline → plan verification questions → answer them *independently* → revise. Measured on hallucination-prone questions: CoVe lifts 86% → 93%, but the key finding is the independence ablation — *contaminated* (joint) verification scored **79%, below baseline**, so factored beats joint by +14 points. "Add a self-check" is only good if the check is independent. | — |
+| [`agentic-rag/`](agentic-rag/) | Agentic RAG | Naive RAG vs. an agentic retrieval loop (rewrite → grade relevance → re-retrieve → abstain), over a **real vector DB** (ChromaDB). Honest measured result: on a strong model + good retriever + modest corpus, naive RAG already abstains on out-of-scope and handles multi-hop — matching agentic RAG at +0% and 1.2× cost. Shows exactly *which conditions* (lossy retrieval, weak models, big corpora) make the loop earn its keep. | — |
 
 More examples coming.
 
