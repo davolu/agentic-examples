@@ -1,6 +1,17 @@
 # Agentic Examples
 
-A collection of small, runnable examples of agentic AI patterns.
+A collection of small, runnable examples of agentic AI patterns — each self-contained, each producing a real measured result or working artifact, and each paired with a hands-on article.
+
+## The series
+
+Eleven examples that build on one another, grouped into an arc:
+
+- **Core patterns** — [reflection](reflectio-agent/), [Reflexion](reflexion-agent/), [deep agents](deep-agent/), and [decision models](jev-agentic/): the building blocks.
+- **Capstone** — [agentic-recorder](agentic-recorder/): an agent that films its own demo videos, composing every core pattern into one pipeline.
+- **Trustworthy agents** — [injection defense](injection-arena/), [human-in-the-loop](hitl-agent/), and [evals](agent-evals/): making agents safe, controllable, and measurable.
+- **Reality checks** — [multi-agent debate](agent-debate/) (a hyped technique measured honestly) and [durable/ambient agents](durable-agent/) (surviving production), plus [building an MCP server](mcp-server/).
+
+Three themes recur across the series: **enforce safety and policy structurally** rather than trusting model goodwill; **measure techniques on your own model** instead of cargo-culting results from older papers; and **build each pattern from scratch once** so the frameworks stop looking like magic.
 
 ## Examples
 
@@ -30,3 +41,23 @@ pip install -r requirements.txt
 export ANTHROPIC_API_KEY=sk-ant-...
 python <main script>.py
 ```
+
+Some examples use additional keys (e.g. `TYPESAFE_API_KEY` for the Jev decision-model layer, `LANGSMITH_API_KEY` for tracing) — see each folder's `.env.example`.
+
+## Credits
+
+Written and maintained by **[David Oluyalegbenga](https://medium.com/@oluyaled)** — full write-ups for every example are on [Medium](https://medium.com/@oluyaled).
+
+**Built with:**
+
+- [Anthropic Claude](https://www.anthropic.com/) (Opus, Sonnet, Haiku) — the models behind every agent
+- [Jev / TypeSafe](https://docs.typesafe.ai) — the System One decision model used for cheap, calibrated routing, gating, and QA
+- [LangChain `deepagents`](https://github.com/langchain-ai/deepagents) & [LangGraph](https://github.com/langchain-ai/langgraph) — the framework halves of the deep-agent and human-in-the-loop examples
+- [Model Context Protocol](https://modelcontextprotocol.io/) — consumed (Playwright MCP) and served (the MCP server example)
+- [Playwright](https://playwright.dev/), [Streamlit](https://streamlit.io/), [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter) — browser automation and UIs
+
+**Papers referenced:** Reflexion (Shinn et al., 2023) · Multi-Agent Debate (Du et al., 2023).
+
+## License
+
+MIT — use the code freely. Attribution appreciated but not required.
