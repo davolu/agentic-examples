@@ -13,6 +13,9 @@ venv/
 # GraphRAG build artifact (regenerated live by graph_index.py)
 graph_index.json
 
+# support-copilot persistent memory store (regenerated at runtime)
+.chroma_memory/
+
 # agentic-recorder runtime artifacts
 agentic-recorder/jobs/
 agentic-recorder/memory/
