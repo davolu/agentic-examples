@@ -59,7 +59,14 @@ Written and maintained by **[David Oluyalegbenga](https://medium.com/@oluyaled)*
 - [Model Context Protocol](https://modelcontextprotocol.io/) — consumed (Playwright MCP) and served (the MCP server example)
 - [Playwright](https://playwright.dev/), [Streamlit](https://streamlit.io/), [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter) — browser automation and UIs
 
-**Papers referenced:** Reflexion (Shinn et al., 2023) · Multi-Agent Debate (Du et al., 2023).
+**Papers & references** (the technique each example is anchored to):
+
+- **Reflexion** — *Reflexion: Language Agents with Verbal Reinforcement Learning*, Shinn et al., 2023 — [`reflexion-agent/`](reflexion-agent/)
+- **Self-Refine** — *Self-Refine: Iterative Refinement with Self-Feedback*, Madaan et al., 2023 — [`reflectio-agent/`](reflectio-agent/)
+- **Chain-of-Verification** — *Chain-of-Verification Reduces Hallucination in Large Language Models*, Dhuliawala et al., 2023 — [`cove-agent/`](cove-agent/)
+- **Multi-Agent Debate** — *Improving Factuality and Reasoning in Language Models through Multiagent Debate*, Du et al., 2023 — [`agent-debate/`](agent-debate/)
+- **LLMCompiler** — *An LLM Compiler for Parallel Function Calling*, Kim et al., 2024 — [`DAG-agents/`](DAG-agents/)
+- **OWASP Top 10 for LLM Applications** (prompt injection, LLM01) — [`injection-arena/`](injection-arena/)
 
 ## License
 
