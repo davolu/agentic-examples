@@ -68,6 +68,7 @@ Written and maintained by **[David Oluyalegbenga](https://medium.com/@oluyaled)*
 - **Chain-of-Verification** — *Chain-of-Verification Reduces Hallucination in Large Language Models*, Dhuliawala et al., 2023 — [`cove-agent/`](cove-agent/)
 - **Multi-Agent Debate** — *Improving Factuality and Reasoning in Language Models through Multiagent Debate*, Du et al., 2023 — [`agent-debate/`](agent-debate/)
 - **LLMCompiler** — *An LLM Compiler for Parallel Function Calling*, Kim et al., 2024 — [`DAG-agents/`](DAG-agents/)
+- **Self-RAG** — *Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection*, Asai et al., 2023 — [`agentic-rag/`](agentic-rag/)
 - **Corrective RAG (CRAG)** — *Corrective Retrieval Augmented Generation*, Yan et al., 2024 — [`crag-agent/`](crag-agent/)
 - **OWASP Top 10 for LLM Applications** (prompt injection, LLM01) — [`injection-arena/`](injection-arena/)
 
