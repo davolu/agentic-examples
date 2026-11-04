@@ -4,13 +4,13 @@ A collection of small, runnable examples of agentic AI patterns — each self-co
 
 ## The series
 
-Sixteen examples that build on one another, grouped into an arc:
+Seventeen examples that build on one another, grouped into an arc:
 
 - **Core patterns** — [reflection](reflectio-agent/), [Reflexion](reflexion-agent/), [deep agents](deep-agent/), [decision models](jev-agentic/), and [chain-of-verification](cove-agent/): the building blocks.
 - **Capstone** — [agentic-recorder](agentic-recorder/): an agent that films its own demo videos, composing every core pattern into one pipeline.
 - **Trustworthy agents** — [injection defense](injection-arena/), [human-in-the-loop](hitl-agent/), and [evals](agent-evals/): making agents safe, controllable, and measurable.
 - **Orchestration & production** — [DAG workflows](DAG-agents/) (parallelism from declared dependencies), [durable/ambient agents](durable-agent/) (surviving production), and [building an MCP server](mcp-server/).
-- **Reality checks** — [multi-agent debate](agent-debate/), [agentic RAG](agentic-rag/), [corrective RAG](crag-agent/), and [adaptive RAG](adaptive-rag/): hyped techniques measured honestly on a current model — sometimes the gains shrink, sometimes they're real (CRAG recovers corpus-misses via the web; adaptive routing matches the best strategy at far less retrieval).
+- **Reality checks** — [multi-agent debate](agent-debate/), [agentic RAG](agentic-rag/), [corrective RAG](crag-agent/), [adaptive RAG](adaptive-rag/), and [GraphRAG](graphrag-agent/): hyped techniques measured honestly on a current model — sometimes the gains shrink, sometimes they're real (CRAG recovers corpus-misses via the web; adaptive routing matches the best strategy at far less retrieval; GraphRAG answers global questions top-k can't — but only earns its cost at scale).
 
 Three themes recur across the series: **enforce safety and policy structurally** rather than trusting model goodwill; **measure techniques on your own model** instead of cargo-culting results from older papers; and **build each pattern from scratch once** so the frameworks stop looking like magic.
 
@@ -34,6 +34,7 @@ Three themes recur across the series: **enforce safety and policy structurally**
 | [`agentic-rag/`](agentic-rag/) | Agentic RAG | Naive RAG vs. an agentic retrieval loop (rewrite → grade relevance → re-retrieve → abstain), over a **real vector DB** (ChromaDB). Honest measured result: on a strong model + good retriever + modest corpus, naive RAG already abstains on out-of-scope and handles multi-hop — matching agentic RAG at +0% and 1.2× cost. Shows exactly *which conditions* (lossy retrieval, weak models, big corpora) make the loop earn its keep. | — |
 | [`crag-agent/`](crag-agent/) | Corrective RAG (CRAG) | Plain RAG vs. CRAG (Yan et al., 2024): a cheap retrieval evaluator (a Jev `Score`) routes each query three ways — *correct* (refine docs), *incorrect* (discard → **web search**), *ambiguous* (both). Measured on questions half in a fictional corpus, half real-world facts it can't contain: CRAG **doubles accuracy, 50% → 100%**, recovering every corpus-miss via web fallback, at 6.4× tokens. The contrast with agentic RAG: CRAG wins because its corrective action *adds a capability the model lacks* (fetch external knowledge), not just gates one it already has (abstain). | — |
 | [`adaptive-rag/`](adaptive-rag/) | Adaptive RAG | Route each query by *complexity* (Jeong et al., 2024) to one of three pipelines — no-retrieval / single-step / multi-step iterative — and **measure the router itself**: Jev vs. an LLM classifier vs. an oracle. Result: adaptive matches always-multi-step accuracy (93%) at **42% less retrieval**, over-retrieving *lowers* accuracy, plain single-step RAG is the worst sensible default (53%), and the cheap classifier (Jev, 13/15) routes as well as the LLM (12/15). The win is structural, so it survives on a strong model. | — |
+| [`graphrag-agent/`](graphrag-agent/) | GraphRAG | For **global/sensemaking** questions top-k retrieval structurally can't answer (Edge et al., 2024). Built from scratch: LLM entity extraction → entity resolution → `networkx` graph → Louvain communities → community summaries → map-reduce global search (Jev filters partial answers). On "what are customers' recurring problems?" over 25 themed tickets: GraphRAG **7/7 theme coverage** vs top-k vector RAG's 3/7 — but the honest kicker is that *stuff-all-into-context also gets 7/7, cheaper*, so GraphRAG only earns its ~14k-token index at **scale** (when the corpus can't fit). Ties vector RAG on local lookups. | — |
 
 More examples coming.
 
@@ -72,6 +73,7 @@ Written and maintained by **[David Oluyalegbenga](https://medium.com/@oluyaled)*
 - **Self-RAG** — *Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection*, Asai et al., 2023 — [`agentic-rag/`](agentic-rag/)
 - **Corrective RAG (CRAG)** — *Corrective Retrieval Augmented Generation*, Yan et al., 2024 — [`crag-agent/`](crag-agent/)
 - **Adaptive-RAG** — *Adaptive-RAG: Learning to Adapt Retrieval-Augmented LLMs through Question Complexity*, Jeong et al., 2024 — [`adaptive-rag/`](adaptive-rag/)
+- **GraphRAG** — *From Local to Global: A Graph RAG Approach to Query-Focused Summarization*, Edge et al., 2024 — [`graphrag-agent/`](graphrag-agent/)
 - **OWASP Top 10 for LLM Applications** (prompt injection, LLM01) — [`injection-arena/`](injection-arena/)
 
 ## License

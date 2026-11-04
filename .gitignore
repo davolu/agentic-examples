@@ -10,6 +10,9 @@ venv/
 # Env / secrets
 .env
 
+# GraphRAG build artifact (regenerated live by graph_index.py)
+graph_index.json
+
 # agentic-recorder runtime artifacts
 agentic-recorder/jobs/
 agentic-recorder/memory/
