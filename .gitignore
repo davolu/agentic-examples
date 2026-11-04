@@ -16,6 +16,12 @@ graph_index.json
 # support-copilot persistent memory store (regenerated at runtime)
 .chroma_memory/
 
+# Tutorial screenshots (local assets for the Medium article, like tutorial.md)
+shots/
+
+# Agentic Lead Gen generated campaign artifacts (demo sites, draft pitches, campaign.json)
+agentic-lead-gen/output/
+
 # agentic-recorder runtime artifacts
 agentic-recorder/jobs/
 agentic-recorder/memory/
