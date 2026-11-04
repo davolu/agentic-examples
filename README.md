@@ -4,13 +4,13 @@ A collection of small, runnable examples of agentic AI patterns — each self-co
 
 ## The series
 
-Fourteen examples that build on one another, grouped into an arc:
+Fifteen examples that build on one another, grouped into an arc:
 
 - **Core patterns** — [reflection](reflectio-agent/), [Reflexion](reflexion-agent/), [deep agents](deep-agent/), [decision models](jev-agentic/), and [chain-of-verification](cove-agent/): the building blocks.
 - **Capstone** — [agentic-recorder](agentic-recorder/): an agent that films its own demo videos, composing every core pattern into one pipeline.
 - **Trustworthy agents** — [injection defense](injection-arena/), [human-in-the-loop](hitl-agent/), and [evals](agent-evals/): making agents safe, controllable, and measurable.
 - **Orchestration & production** — [DAG workflows](DAG-agents/) (parallelism from declared dependencies), [durable/ambient agents](durable-agent/) (surviving production), and [building an MCP server](mcp-server/).
-- **Reality checks** — [multi-agent debate](agent-debate/) and [agentic RAG](agentic-rag/): hyped techniques measured honestly on a current model, where the gains often shrink.
+- **Reality checks** — [multi-agent debate](agent-debate/), [agentic RAG](agentic-rag/), and [corrective RAG](crag-agent/): hyped techniques measured honestly on a current model — sometimes the gains shrink, sometimes (CRAG) they're real when the corrective action *unlocks a new capability*.
 
 Three themes recur across the series: **enforce safety and policy structurally** rather than trusting model goodwill; **measure techniques on your own model** instead of cargo-culting results from older papers; and **build each pattern from scratch once** so the frameworks stop looking like magic.
 
@@ -32,6 +32,7 @@ Three themes recur across the series: **enforce safety and policy structurally**
 | [`DAG-agents/`](DAG-agents/) | DAG orchestration | A résumé-review workflow as a diamond DAG (parse → 3 analyses in parallel → synthesize), built twice: a ~50-line from-scratch scheduler (topological levels + `asyncio.gather` + cycle detection) and with LangGraph. Measured sequential→parallel speedup (1.7×, bounded by nodes/critical-path), a cycle-rejection demo, and an honest note on why DAGs can't do feedback loops. Anchored to LLMCompiler (Kim et al., 2024). | — |
 | [`cove-agent/`](cove-agent/) | Chain-of-Verification | An agent that fact-checks itself (Dhuliawala et al., 2023): baseline → plan verification questions → answer them *independently* → revise. Measured on hallucination-prone questions: CoVe lifts 86% → 93%, but the key finding is the independence ablation — *contaminated* (joint) verification scored **79%, below baseline**, so factored beats joint by +14 points. "Add a self-check" is only good if the check is independent. | — |
 | [`agentic-rag/`](agentic-rag/) | Agentic RAG | Naive RAG vs. an agentic retrieval loop (rewrite → grade relevance → re-retrieve → abstain), over a **real vector DB** (ChromaDB). Honest measured result: on a strong model + good retriever + modest corpus, naive RAG already abstains on out-of-scope and handles multi-hop — matching agentic RAG at +0% and 1.2× cost. Shows exactly *which conditions* (lossy retrieval, weak models, big corpora) make the loop earn its keep. | — |
+| [`crag-agent/`](crag-agent/) | Corrective RAG (CRAG) | Plain RAG vs. CRAG (Yan et al., 2024): a cheap retrieval evaluator (a Jev `Score`) routes each query three ways — *correct* (refine docs), *incorrect* (discard → **web search**), *ambiguous* (both). Measured on questions half in a fictional corpus, half real-world facts it can't contain: CRAG **doubles accuracy, 50% → 100%**, recovering every corpus-miss via web fallback, at 6.4× tokens. The contrast with agentic RAG: CRAG wins because its corrective action *adds a capability the model lacks* (fetch external knowledge), not just gates one it already has (abstain). | — |
 
 More examples coming.
 
@@ -67,6 +68,7 @@ Written and maintained by **[David Oluyalegbenga](https://medium.com/@oluyaled)*
 - **Chain-of-Verification** — *Chain-of-Verification Reduces Hallucination in Large Language Models*, Dhuliawala et al., 2023 — [`cove-agent/`](cove-agent/)
 - **Multi-Agent Debate** — *Improving Factuality and Reasoning in Language Models through Multiagent Debate*, Du et al., 2023 — [`agent-debate/`](agent-debate/)
 - **LLMCompiler** — *An LLM Compiler for Parallel Function Calling*, Kim et al., 2024 — [`DAG-agents/`](DAG-agents/)
+- **Corrective RAG (CRAG)** — *Corrective Retrieval Augmented Generation*, Yan et al., 2024 — [`crag-agent/`](crag-agent/)
 - **OWASP Top 10 for LLM Applications** (prompt injection, LLM01) — [`injection-arena/`](injection-arena/)
 
 ## License
